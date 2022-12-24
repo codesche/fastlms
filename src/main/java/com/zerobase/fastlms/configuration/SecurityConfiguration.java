@@ -30,6 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new UserAuthenticationFailureHandler();
     }
 
+    // UserAuthenticationSuccessHandler 추가 - LocalHistory
+    @Bean
+    UserAuthenticationSuccessHandler getSuccessHandler() {
+        return new UserAuthenticationSuccessHandler(memberService);
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -55,6 +61,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/member/login")
                 .failureHandler(getFailureHandler())
+                // login-history 추가
+                .successHandler(getSuccessHandler())
                 .permitAll();
 
         http.logout()

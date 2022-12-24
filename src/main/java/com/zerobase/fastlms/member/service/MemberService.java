@@ -1,7 +1,9 @@
 package com.zerobase.fastlms.member.service;
 
+import com.zerobase.fastlms.admin.dto.LoginHistoryDto;
 import com.zerobase.fastlms.admin.dto.MemberDto;
 import com.zerobase.fastlms.course.model.ServiceResult;
+import com.zerobase.fastlms.member.model.LoginHistoryInput;
 import com.zerobase.fastlms.member.model.MemberInput;
 import com.zerobase.fastlms.admin.model.MemberParam;
 import com.zerobase.fastlms.member.model.ResetPasswordInput;
@@ -72,4 +74,14 @@ public interface MemberService extends UserDetailsService {
      * @return
      */
     ServiceResult withdraw(String userId, String password);
+
+    /**
+     * 로그인 기록을 남겨주는 로직(관리자에서만 사용 가능)
+     */
+    List<LoginHistoryDto> loginHistory(String userId);
+
+    /**
+     * 로그인 시 history 기록하고 멤버별 최근 로그인 일자 업데이트하는 로직
+     */
+    boolean recordLoginHistory(LoginHistoryInput loginHistoryInput);
 }

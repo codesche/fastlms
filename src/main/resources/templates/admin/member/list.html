@@ -67,6 +67,8 @@
                     <th>이메일 인증 여부</th>
                     <th>가입일</th>
                     <th>관리자여부</th>
+                    <!-- 마지막 로그인 일자 열 추가 -->
+                    <th>마지막 로그인 일자</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,7 +76,7 @@
                     <td th:text="${x.seq}">1</td>
                     <td>
                         <a th:text="${x.userId}"
-                           th:href="${'detail.do?userId=' + x.userId}"
+                           th:href="${'detail.do?userId=' + x.userId}">
                             hms7709@naver.com</a>
                     </td>
 
@@ -90,6 +92,10 @@
                     <td>
                         <p th:if="${x.adminYn}">Y</p>
                         <p th:if="${x.adminYn eq false}">N</p>
+                    </td>
+                    <!-- 로그인 히스토리 기능 -->
+                    <td>
+                        <p th:text="${x.lastLoginDt}">2021.01.01</p>
                     </td>
                 </tr>
             </tbody>

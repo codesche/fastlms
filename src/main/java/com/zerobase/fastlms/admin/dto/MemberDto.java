@@ -40,6 +40,9 @@ public class MemberDto {
     long totalCount;
     long seq;
 
+    // login_history 추가 칼럼
+    LocalDateTime lastLoginDt;
+
     public static MemberDto of(Member member) {
 
         return MemberDto.builder()
@@ -59,6 +62,9 @@ public class MemberDto {
                 .zipcode(member.getZipcode())
                 .addr(member.getAddr())
                 .addrDetail(member.getAddrDetail())
+
+                // 로그인 날짜 추가
+                .lastLoginDt(member.getLastLoginDt())
 
                 .build();
     }
