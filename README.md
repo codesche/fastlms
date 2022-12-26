@@ -1,4 +1,4 @@
-# 학습관리시스템(LMS)-Part2 과제
+## 학습관리시스템(LMS)-Part2 과제
 
 - 회원 로그인시 로그인 히스토리(로그)기능
 ![image](https://user-images.githubusercontent.com/110509654/209521230-a987d14e-63e2-4c4e-b971-16aef87e4001.png)
